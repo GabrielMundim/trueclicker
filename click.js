@@ -13,7 +13,7 @@ const delay1 = document.getElementById("delay1")
 let delay = 200
 let delayvalue = 100000
 let v1 = first.value
-let cpc = 10000000000000
+let cpc = 1
 let canclick = true
 let listpoint = 0
 clicks.value = 0 
@@ -165,3 +165,4 @@ third.addEventListener("pointerdown", addc3)
 forth.addEventListener("pointerdown", addc4)
 fifthy.addEventListener("pointerdown", addc5)
 delay1.addEventListener("pointerdown", delay1f)
+
