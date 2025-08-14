@@ -14,11 +14,21 @@ const aclicker1 = document.getElementById("aclicker1")
 const aclicker3 = document.getElementById("aclicker3")
 const clicking = document.getElementById("acbutton")
 const aclicker2 = document.getElementById("aclicker2") 
+const rebirth = document.getElementById("rebirth")
+const rmenu = document.getElementById("rmenu")
+const rbutton = document.getElementById("rbutton")
+const vrebirth = document.getElementById("vrebirth")
+const vrtext = document.getElementById("vrtext")
 const audio = new Audio("gemido-whatsapp.mp3")
 const music = new Audio("Gloria Gaynor i will survive Lyrics.mp3")
 let delay = 200
 let delayvalue = 100000
-let v1 = first.value
+let v1 = 100
+let v2 = 1000
+let v3 = 10000
+let v4 = 100000
+let v5 = 1000000
+let initialcpc = 1
 let cpc = 100000000000000
 let canclick = true
 let listpoint = 0
@@ -42,24 +52,17 @@ let actvc3 = false
 let tempo; 
 let updt1 = false
 let updt2 = false
+let rmopen = false
 let speed = 1000
+vrebirth.value = 1000000
 delay1.value = 100000
 const valuelist = {
     vindex: 0,
-    values: ["10M", "1B", "Max", "Max"]
+    values: ["100K","10M", "1B", "Max",]
 }
  let temporizador =  setInterval(() => {
     canclick = true
 }, delay);
-class adds {
-    constructor() {
-        firstadd,
-        secondadd,
-        thirdadd,
-        forthadd,
-        fifthyadd
-    }
-}
 
 function Cgain(){
         if (canclick) {
@@ -100,7 +103,7 @@ function aumenta() {
         cpc = cpc + firstadd
         clicks.value = clicks.value - first.value
         first.value = first.value * 1.5
-        first.value = Math.floor(first.value)
+        first.value = Math.ceil(first.value)
         first.innerHTML = `${first.value}: + ${firstadd} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
@@ -119,7 +122,7 @@ function aumenta() {
         cpc = cpc + secondadd
         clicks.value = clicks.value - second.value
         second.value = second.value * 1.5
-        second.value = Math.floor(second.value)
+        second.value = Math.ceil(second.value)
         second.innerHTML = `${second.value}: + ${secondadd} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
@@ -138,7 +141,7 @@ function aumenta() {
         cpc = cpc + thirdadd
         clicks.value = clicks.value - third.value
         third.value = third.value * 1.5
-        third.value = Math.floor(third.value)
+        third.value = Math.ceil(third.value)
         third.innerHTML = `${third.value}: + ${thirdadd} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
@@ -157,7 +160,7 @@ function aumenta() {
         cpc = cpc + forthadd
         clicks.value = clicks.value - forth.value
         forth.value = forth.value * 1.5
-        forth.value = Math.floor(forth.value)
+        forth.value = Math.ceil(forth.value)
         forth.innerHTML = `${forth.value}: + ${forthadd} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
@@ -176,7 +179,7 @@ function aumenta() {
         cpc = cpc + fifthyadd
         clicks.value = clicks.value - fifthy.value
         fifthy.value = fifthy.value * 1.5
-        fifthy.value = Math.floor(fifthy.value)
+        fifthy.value = Math.ceil(fifthy.value)
         fifthy.innerHTML = `${fifthy.value}: + ${fifthyadd} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
@@ -301,7 +304,93 @@ function aumenta() {
          if (delayed >= 3) {
   delay1.style.backgroundColor = "gray";}
     }, 50);
-    
+    function openrm () {
+        if (rmopen === false) {
+            rmenu.style.display = "block"
+            rmopen = true
+        }
+        else if (rmopen === true) {
+            rmenu.style.display = "none"
+            rmopen = false
+        }
+    }
+    function rebirthdo () {
+        if (clicks.value < vrebirth.value) {
+            window.alert("You do not have clicks enougth little boy")
+    }
+        else if (clicks.value >= vrebirth.value) {
+            firstadd = firstadd * 1.5
+            secondadd = secondadd * 1.5
+            thirdadd = thirdadd * 1.5
+            forthadd = forthadd * 1.5
+            fifthyadd = fifthyadd * 1.5
+            Math.ceil(firstadd)
+            Math.ceil(secondadd)
+            Math.ceil(thirdadd)
+            Math.ceil(forthadd)
+            Math.ceil(fifthyadd)
+            v1 = Math.ceil(v1 * 1.5)
+            v2 = Math.ceil(v2 * 1.5)
+            v3 = Math.ceil(v3 * 1.5)
+            v4 = Math.ceil(v4 * 1.5)
+            v5 = Math.ceil(v5 * 1.5)
+            initialcpc = initialcpc * 1.5
+            first.value = v1
+            second.value = v2
+            third.value = v3
+            forth.value = v4
+            fifthy.value = v5
+            clicks.value = 0
+            cpc = initialcpc
+            Math.ceil(cpc)
+            vrebirth.value = vrebirth.value * 2
+            updt1 = false
+            updt2 = false
+            actvc = false
+            actvc2 = false
+            actvc3 = false
+            clickingc = false
+            delay = 200
+            speed = 1000
+            clearInterval(tempo)
+            clearInterval(temporizador)
+            temporizador = setInterval(() => {
+                canclick = true
+            }, delay);
+            delayed = 0
+            clicking.style.display = 'none'
+            clicking.style.backgroundColor = "red"
+            aclicker1.innerHTML = "1M: Fat AutoClicker"
+            aclicker2.innerHTML = "1B: Med AutoClicker"
+            aclicker3.innerHTML = "1T: Fast AutoClicker"
+            delay1.style.backgroundColor = "rgb(189, 19, 132)"
+            aclicker1.style.backgroundColor = "rgb(189, 19, 132)"
+            aclicker2.style.backgroundColor = "rgb(189, 19, 132)"
+            aclicker3.style.backgroundColor = "rgb(189, 19, 132)"
+            first.innerHTML = `${first.value}: + ${Math.ceil(firstadd)} Clicks `
+            second.innerHTML = `${second.value}: + ${Math.ceil(secondadd)} Clicks `
+            third.innerHTML = `${third.value}: + ${Math.ceil(thirdadd)} Clicks ` 
+            forth.innerHTML = `${forth.value}: + ${Math.ceil(forthadd)} Clicks `
+            fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `
+            valuelist.vindex = 0
+            listpoint = 0
+            delay1.value = 100000
+            delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
+            window.alert("You have rebirthed, your clicks and upgrades were reseted, but you got stronger little boy")
+            rmenu.style.display = "none"
+            cpc = 1000000000000000000000000
+  }
+}
+            delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
+    setInterval(() => {
+        if (clicks.value < vrebirth.value) {
+            rbutton.style.backgroundColor = "gray"}
+        else if (clicks.value >= vrebirth.value) {
+            rbutton.style.backgroundColor = "rgba(189, 19, 132, 0.12)" }
+        }, 50)
+    setInterval(() => {
+            vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`
+        }, 50);
 kma.addEventListener("pointerdown", Cgain)
 seta.addEventListener("pointerdown", diminui)
 seta.addEventListener("pointerup", aumenta)
@@ -315,6 +404,8 @@ aclicker1.addEventListener("pointerdown", activateacb)
 clicking.addEventListener("pointerdown", clicka)
 aclicker2.addEventListener("pointerdown", changespeed)
 aclicker3.addEventListener("pointerdown", changespeed2)
+rebirth.addEventListener("pointerdown", openrm)
+rbutton.addEventListener("pointerdown", rebirthdo)
 setTimeout(() => {
   music.play()
     music.volume = 0.5  
