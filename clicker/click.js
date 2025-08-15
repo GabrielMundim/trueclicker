@@ -28,6 +28,7 @@ let v2 = 1000
 let v3 = 10000
 let v4 = 100000
 let v5 = 1000000
+let madds = 1.5
 let initialcpc = 1
 let cpc = 1
 let canclick = true
@@ -63,15 +64,19 @@ const valuelist = {
  let temporizador =  setInterval(() => {
     canclick = true
 }, delay);
-
 function Cgain(){
         if (canclick) {
         clicks.value = clicks.value + cpc
-        clicks.innerHTML = clicks.value  
         audio.play()
-        audio.volume = 0.1
+        audio.volume = 0
+        clicks.value = Math.ceil(clicks.value)
  }
  canclick = false
+}
+function setTitle() {
+    async function Cgain() {
+        clicks.innerHTML = clicks.value  
+    }
 }
 setInterval(() => {
     clicks.innerHTML = clicks.value
@@ -102,9 +107,9 @@ function aumenta() {
         if (clicks.value >= first.value) {
         cpc = cpc + firstadd
         clicks.value = clicks.value - first.value
-        first.value = first.value * 1.5
+        first.value = first.value * madds
         first.value = Math.ceil(first.value)
-        first.innerHTML = `${first.value}: + ${firstadd} Clicks `
+        first.innerHTML = `${first.value}: + ${Math.ceil(firstadd)} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
         }
@@ -121,9 +126,9 @@ function aumenta() {
         if (clicks.value >= second.value) {
         cpc = cpc + secondadd
         clicks.value = clicks.value - second.value
-        second.value = second.value * 1.5
+        second.value = second.value * madds
         second.value = Math.ceil(second.value)
-        second.innerHTML = `${second.value}: + ${secondadd} Clicks `
+        second.innerHTML = `${second.value}: + ${Math.ceil(secondadd)} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
         }
@@ -140,9 +145,9 @@ function aumenta() {
         if (clicks.value >= third.value) {
         cpc = cpc + thirdadd
         clicks.value = clicks.value - third.value
-        third.value = third.value * 1.5
+        third.value = third.value * madds
         third.value = Math.ceil(third.value)
-        third.innerHTML = `${third.value}: + ${thirdadd} Clicks `
+        third.innerHTML = `${third.value}: + ${Math.ceil(thirdadd)} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
         }
@@ -159,9 +164,9 @@ function aumenta() {
         if (clicks.value >= forth.value) {
         cpc = cpc + forthadd
         clicks.value = clicks.value - forth.value
-        forth.value = forth.value * 1.5
+        forth.value = forth.value * madds
         forth.value = Math.ceil(forth.value)
-        forth.innerHTML = `${forth.value}: + ${forthadd} Clicks `
+        forth.innerHTML = `${forth.value}: + ${Math.ceil(forthadd)} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
         }
@@ -178,9 +183,9 @@ function aumenta() {
         if (clicks.value >= fifthy.value) {
         cpc = cpc + fifthyadd
         clicks.value = clicks.value - fifthy.value
-        fifthy.value = fifthy.value * 1.5
+        fifthy.value = fifthy.value * madds
         fifthy.value = Math.ceil(fifthy.value)
-        fifthy.innerHTML = `${fifthy.value}: + ${fifthyadd} Clicks `
+        fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `
         } else {
             window.alert("You do not have clicks enougth little boy")
         }
@@ -224,6 +229,7 @@ function aumenta() {
             actvc = true
             updt1 = true
             aclicker1.innerHTML = "Max: Fat AutoClicker"
+            clicks.value = clicks.value - 1000000
         }
             }
     function changespeed () {
@@ -244,6 +250,7 @@ function aumenta() {
             window.alert("The auto Clicker delay now is 200ms")
             updt2 = true
             aclicker2.innerHTML = "Max: Med AutoClicker"
+            clicks.value = clicks.value - 1000000000
         }
     } 
     function changespeed2 () {
@@ -263,6 +270,7 @@ function aumenta() {
             actvc3 = true
             window.alert("The auto Clicker delay now is 50ms")
             aclicker3.innerHTML = "Max: Fast AutoClicker"
+            clicks.value = clicks.value - 1000000000000
         }
     } 
             setInterval(() => {
@@ -287,6 +295,7 @@ function aumenta() {
   delay1.value = delay1.value * 100;
   delayed = delayed + 1;
   listpoint = listpoint + 1;
+  clicks.value = clicks.value - delay1.value;
   console.log(delay);
   setTimeout(() => {
     clearInterval(temporizador);
@@ -300,6 +309,9 @@ function aumenta() {
          delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
     valuelist.vindex = (valuelist.vindex * 0 + listpoint) % valuelist.values.length
     }
+    setInterval(() => {
+        delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
+    }, 50);
     setInterval(() => {
          if (delayed >= 3) {
   delay1.style.backgroundColor = "gray";}
@@ -334,6 +346,7 @@ function aumenta() {
             v3 = Math.ceil(v3 * 1.5)
             v4 = Math.ceil(v4 * 1.5)
             v5 = Math.ceil(v5 * 1.5)
+            madds = madds + 0.3
             initialcpc = initialcpc * 1.5
             first.value = v1
             second.value = v2
@@ -380,7 +393,7 @@ function aumenta() {
             rmenu.style.display = "none"
   }
 }
-            delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
+            
     setInterval(() => {
         if (clicks.value < vrebirth.value) {
             rbutton.style.backgroundColor = "gray"}
@@ -389,15 +402,18 @@ function aumenta() {
         }, 50)
     setInterval(() => {
             vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`
+            delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
+            
         }, 50);
-kma.addEventListener("pointerdown", Cgain)
+      
+kma.addEventListener("pointerdown", Cgain, setTitle)
 seta.addEventListener("pointerdown", diminui)
 seta.addEventListener("pointerup", aumenta)
-first.addEventListener("pointerdown", addc1)
-second.addEventListener("pointerdown", addc2)
-third.addEventListener("pointerdown", addc3)
-forth.addEventListener("pointerdown", addc4)
-fifthy.addEventListener("pointerdown", addc5)
+first.addEventListener("pointerdown", addc1 )
+second.addEventListener("pointerdown", addc2 )
+third.addEventListener("pointerdown", addc3 )
+forth.addEventListener("pointerdown", addc4 )
+fifthy.addEventListener("pointerdown", addc5 )
 delay1.addEventListener("pointerdown", delay1f)
 aclicker1.addEventListener("pointerdown", activateacb)
 clicking.addEventListener("pointerdown", clicka)
@@ -407,9 +423,9 @@ rebirth.addEventListener("pointerdown", openrm)
 rbutton.addEventListener("pointerdown", rebirthdo)
 setTimeout(() => {
   music.play()
-    music.volume = 0.5  
+    music.volume = 0
 }, 1);
 setInterval(() => {
     music.play()
-    music.volume = 0.5
+    music.volume = 0
 }, 288000);
