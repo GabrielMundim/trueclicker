@@ -29,7 +29,7 @@ let v3 = 10000
 let v4 = 100000
 let v5 = 1000000
 let initialcpc = 1
-let cpc = 100000000000000
+let cpc = 1
 let canclick = true
 let listpoint = 0
 clicks.value = 0 
@@ -378,7 +378,6 @@ function aumenta() {
             delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
             window.alert("You have rebirthed, your clicks and upgrades were reseted, but you got stronger little boy")
             rmenu.style.display = "none"
-            cpc = 1000000000000000000000000
   }
 }
             delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
