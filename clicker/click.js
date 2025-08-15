@@ -21,6 +21,11 @@ const vrebirth = document.getElementById("vrebirth")
 const vrtext = document.getElementById("vrtext")
 const audio = new Audio("gemido-whatsapp.mp3")
 const music = new Audio("Gloria Gaynor i will survive Lyrics.mp3")
+let set1;
+let set2;
+let set3;
+let set4;
+let set5;
 let delay = 200
 let delayvalue = 100000
 let v1 = 100
@@ -68,7 +73,7 @@ function Cgain(){
         if (canclick) {
         clicks.value = clicks.value + cpc
         audio.play()
-        audio.volume = 0
+        audio.volume = 0.1
         clicks.value = Math.ceil(clicks.value)
  }
  canclick = false
@@ -114,7 +119,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
         }
     }
-    setInterval(() => {
+        set1 = setInterval(() => {
         if (clicks.value < first.value) {
             first.style.backgroundColor = "gray"
         }
@@ -133,7 +138,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
         }
     }
-    setInterval(() => {
+        set2 = setInterval(() => {
         if (clicks.value < second.value) {
             second.style.backgroundColor = "gray"
         }
@@ -152,7 +157,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
         }
     }
-    setInterval(() => {
+         set3 = setInterval(() => {
         if (clicks.value < third.value) {
             third.style.backgroundColor = "gray"
         }
@@ -171,7 +176,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
         }
     }
-    setInterval(() => {
+         set4 = setInterval(() => {
         if (clicks.value < forth.value) {
             forth.style.backgroundColor = "gray"
         }
@@ -190,7 +195,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
         }
     }
-    setInterval(() => {
+         set5 = setInterval(() => {
         if (clicks.value < fifthy.value) {
             fifthy.style.backgroundColor = "gray"
         }
@@ -233,7 +238,7 @@ function aumenta() {
         }
             }
     function changespeed () {
-         if (clicks.value < 1000000000) {
+         if (clicks.value < 100000000) {
             window.alert("You do not have clicks enougth little boy")
         }
         else if (updt1 === false) {
@@ -243,18 +248,18 @@ function aumenta() {
             aclicker2.style.backgroundColor = "gray";
             window.alert("You've reached the max upgrade");
         }
-        else if (clicks.value >= 1000000000) {
+        else if (clicks.value >= 100000000) {
             speed = 200
             clearInterval(tempo)
             actvc2 = true
             window.alert("The auto Clicker delay now is 200ms")
             updt2 = true
             aclicker2.innerHTML = "Max: Med AutoClicker"
-            clicks.value = clicks.value - 1000000000
+            clicks.value = clicks.value - 100000000
         }
     } 
     function changespeed2 () {
-         if (clicks.value < 1000000000000) {
+         if (clicks.value < 1000000000) {
             window.alert("You do not have clicks enougth little boy")
         }
         else if (updt2 === false) {
@@ -264,13 +269,13 @@ function aumenta() {
             aclicker3.style.backgroundColor = "gray";
             window.alert("You've reached the max upgrade");
         }
-        else if (clicks.value >= 1000000000000) {
+        else if (clicks.value >= 1000000000) {
             speed = 50
             clearInterval(tempo)
             actvc3 = true
             window.alert("The auto Clicker delay now is 50ms")
             aclicker3.innerHTML = "Max: Fast AutoClicker"
-            clicks.value = clicks.value - 1000000000000
+            clicks.value = clicks.value - 1000000000
         }
     } 
             setInterval(() => {
@@ -292,10 +297,10 @@ function aumenta() {
   window.alert("You've reached the max upgrade");
 } else if (clicks.value >= delay1.value) {
   delay = delay - 50;
+  clicks.value = clicks.value - delay1.value;
   delay1.value = delay1.value * 100;
   delayed = delayed + 1;
   listpoint = listpoint + 1;
-  clicks.value = clicks.value - delay1.value;
   console.log(delay);
   setTimeout(() => {
     clearInterval(temporizador);
@@ -331,6 +336,7 @@ function aumenta() {
             window.alert("You do not have clicks enougth little boy")
     }
         else if (clicks.value >= vrebirth.value) {
+            madds = madds + 0.2
             firstadd = firstadd * 1.5
             secondadd = secondadd * 1.5
             thirdadd = thirdadd * 1.5
@@ -341,12 +347,11 @@ function aumenta() {
             Math.ceil(thirdadd)
             Math.ceil(forthadd)
             Math.ceil(fifthyadd)
-            v1 = Math.ceil(v1 * 1.5)
-            v2 = Math.ceil(v2 * 1.5)
-            v3 = Math.ceil(v3 * 1.5)
-            v4 = Math.ceil(v4 * 1.5)
-            v5 = Math.ceil(v5 * 1.5)
-            madds = madds + 0.3
+            v1 = Math.ceil(v1 * madds)
+            v2 = Math.ceil(v2 * madds)
+            v3 = Math.ceil(v3 * madds)
+            v4 = Math.ceil(v4 * madds)
+            v5 = Math.ceil(v5 * madds)
             initialcpc = initialcpc * 1.5
             first.value = v1
             second.value = v2
@@ -374,8 +379,8 @@ function aumenta() {
             clicking.style.display = 'none'
             clicking.style.backgroundColor = "red"
             aclicker1.innerHTML = "1M: Fat AutoClicker"
-            aclicker2.innerHTML = "1B: Med AutoClicker"
-            aclicker3.innerHTML = "1T: Fast AutoClicker"
+            aclicker2.innerHTML = "100M: Med AutoClicker"
+            aclicker3.innerHTML = "1B: Fast AutoClicker"
             delay1.style.backgroundColor = "rgb(189, 19, 132)"
             aclicker1.style.backgroundColor = "rgb(189, 19, 132)"
             aclicker2.style.backgroundColor = "rgb(189, 19, 132)"
@@ -391,8 +396,37 @@ function aumenta() {
             delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
             window.alert("You have rebirthed, your clicks and upgrades were reseted, but you got stronger little boy")
             rmenu.style.display = "none"
-  }
-}
+            delay1.addEventListener("mouseover" , function() {
+                delay1.style.backgroundColor = "rgb(255, 147, 223)"
+            });
+            delay1.addEventListener("mouseout" , function() {
+                delay1.style.backgroundColor = "rgb(189, 19, 132)"
+            });
+            aclicker1.addEventListener("mouseover" , function() {
+                aclicker1.style.backgroundColor = "rgb(255, 147, 223)"
+            });
+            aclicker1.addEventListener("mouseout" , function() {
+                aclicker1.style.backgroundColor = "rgb(189, 19, 132)"
+            });
+            aclicker2.addEventListener("mouseover" , function() {
+                aclicker2.style.backgroundColor = "rgb(255, 147, 223)"
+            });
+            aclicker2.addEventListener("mouseout" , function() {
+                aclicker2.style.backgroundColor = "rgb(189, 19, 132)"
+            });
+            aclicker3.addEventListener("mouseover" , function() {
+                aclicker3.style.backgroundColor = "rgb(255, 147, 223)"
+            });
+            aclicker3.addEventListener("mouseout" , function() {
+                aclicker3.style.backgroundColor = "rgb(189, 19, 132)"   
+            });
+            rebirth.addEventListener("mouseover" , function() {
+                rbutton.style.backgroundColor = "rgb(255, 147, 223)"
+            });
+            rebirth.addEventListener("mouseout" , function() {
+                rbutton.style.backgroundColor = "rgb(189, 19, 132)"
+            });
+}};
             
     setInterval(() => {
         if (clicks.value < vrebirth.value) {
@@ -407,13 +441,13 @@ function aumenta() {
         }, 50);
       
 kma.addEventListener("pointerdown", Cgain, setTitle)
-seta.addEventListener("pointerdown", diminui)
-seta.addEventListener("pointerup", aumenta)
-first.addEventListener("pointerdown", addc1 )
-second.addEventListener("pointerdown", addc2 )
-third.addEventListener("pointerdown", addc3 )
-forth.addEventListener("pointerdown", addc4 )
-fifthy.addEventListener("pointerdown", addc5 )
+seta.addEventListener("pointerdown", diminui,)
+seta.addEventListener("pointerup", aumenta,)
+first.addEventListener("pointerdown", addc1,)
+second.addEventListener("pointerdown", addc2,)
+third.addEventListener("pointerdown", addc3,) 
+forth.addEventListener("pointerdown", addc4,)
+fifthy.addEventListener("pointerdown", addc5,)
 delay1.addEventListener("pointerdown", delay1f)
 aclicker1.addEventListener("pointerdown", activateacb)
 clicking.addEventListener("pointerdown", clicka)
@@ -421,11 +455,100 @@ aclicker2.addEventListener("pointerdown", changespeed)
 aclicker3.addEventListener("pointerdown", changespeed2)
 rebirth.addEventListener("pointerdown", openrm)
 rbutton.addEventListener("pointerdown", rebirthdo)
+first.addEventListener("mouseover", function() {
+    if (clicks.value >= first.value) {
+        clearInterval(set1)
+        first.style.backgroundColor = "rgb(255, 147, 223)";
+    }
+});
+first.addEventListener("mouseout", function() {
+    clearInterval(set1)
+    set1 = setInterval(() => {
+        if (clicks.value < first.value) {
+            first.style.backgroundColor = "gray"
+        }
+        else {
+           first.style.backgroundColor = "rgb(189, 19, 132)" 
+        }
+    } , 50);
+});
+second.addEventListener("mouseover", function() {
+    if (clicks.value >= second.value) {
+    clearInterval(set2)
+    second.style.backgroundColor = "rgb(255, 147, 223)";      
+    }
+});
+second.addEventListener("mouseout", function() {
+        clearInterval(set2)
+        set2 = setInterval(() => { 
+        if (clicks.value < second.value) {
+            second.style.backgroundColor = "gray"
+        }
+        else {
+           second.style.backgroundColor = "rgb(189, 19, 132)" 
+        }
+    } , 50);
+}
+);
+third.addEventListener("mouseover", function() {
+    if (clicks.value >= third.value) {
+    clearInterval(set3) 
+    third.style.backgroundColor = "rgb(255, 147, 223)";
+    }
+});
+third.addEventListener("mouseout", function() {
+        clearInterval(set3)
+        set3 = setInterval(() => {
+        if (clicks.value < third.value) {
+            third.style.backgroundColor = "gray"
+        }
+        else {
+           third.style.backgroundColor = "rgb(189, 19, 132)" 
+        }
+    } , 50);
+}
+);
+forth.addEventListener("mouseover", function() {
+    if (clicks.value >= forth.value) {
+        clearInterval(set4)
+        forth.style.backgroundColor = "rgb(255, 147, 223)";
+    }
+});
+forth.addEventListener("mouseout", function() {
+        clearInterval(set4)
+        set4 = setInterval(() => {
+        if (clicks.value < forth.value) {
+            forth.style.backgroundColor = "gray"
+        }
+        else {
+           forth.style.backgroundColor = "rgb(189, 19, 132)" 
+        }
+    } , 50);
+}
+);
+fifthy.addEventListener("mouseover", function() {
+    if (clicks.value >= fifthy.value) {
+    clearInterval(set5)    
+    fifthy.style.backgroundColor = "rgb(255, 147, 223)";       
+    }
+});
+fifthy.addEventListener("mouseout", function() {
+        clearInterval(set5)
+        set5 = setInterval(() => {
+        if (clicks.value < fifthy.value) {
+            fifthy.style.backgroundColor = "gray"
+        }
+        else {
+           fifthy.style.backgroundColor = "rgb(189, 19, 132)" 
+        }
+    } , 50);
+}
+);
 setTimeout(() => {
   music.play()
-    music.volume = 0
-}, 1);
+    music.volume = 0.5
+}, 1000);
 setInterval(() => {
     music.play()
-    music.volume = 0
-}, 288000);
+    music.volume = 0.5
+}, 289000);
