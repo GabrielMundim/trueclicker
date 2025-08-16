@@ -342,3 +342,6 @@ background-color: rgb(255, 147, 223);
     text-align: center;
     justify-self: center;
 }
+.cslct {
+    user-select: none;
+}

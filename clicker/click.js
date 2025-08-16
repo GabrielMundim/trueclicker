@@ -638,8 +638,6 @@ fifthy.addEventListener("mouseout", function() {
     } , 50);
 }
 );
-
-
 loadGame()
 first.innerHTML = `${first.value}: + ${Math.ceil(firstadd)} Clicks `;
 second.innerHTML = `${second.value}: + ${Math.ceil(secondadd)} Clicks `;
