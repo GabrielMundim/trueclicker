@@ -208,6 +208,7 @@ function aumenta() {
         if (clickingc === false) {
              tempo = setInterval(() => {
                 clicks.value = clicks.value + cpc
+                clicks.value = Math.ceil(clicks.value)
                 audio.volume = 0.1
                 audio.play()
             }, speed);
