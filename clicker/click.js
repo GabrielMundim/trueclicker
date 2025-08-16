@@ -514,6 +514,9 @@ function loadGame() {
     updt2 = saveData.updt2;
     listpoint = saveData.listpoint;
     valuelist.vindex = saveData.valuelist.vindex;
+    if (actvc === true) {
+        clicking.style.display = 'block';
+ }
 }
 function playm() {
     if (playmusic === false) {
@@ -644,3 +647,15 @@ forth.innerHTML = `${forth.value}: + ${Math.ceil(forthadd)} Clicks `;
 fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `;
 delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`;
 vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`;
+if (actvc === true) {
+    aclicker1.style.backgroundColor = "gray"
+    aclicker1.innerHTML = "Max: Fat AutoClicker"
+}
+if (actvc2 === true) {
+    aclicker2.style.backgroundColor = "gray"
+    aclicker2.innerHTML = "Max: Med AutoClicker"
+}
+if (actvc3 === true) {
+    aclicker3.style.backgroundColor = "gray"
+    aclicker3.innerHTML = "Max: Fast AutoClicker"
+}
