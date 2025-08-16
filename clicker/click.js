@@ -439,7 +439,81 @@ function aumenta() {
             delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`
             
         }, 50);
-      
+      function saveGame() {
+    const saveData = {
+        clicks: clicks.value,
+        cpc,
+        first: first.value,
+        second: second.value,
+        third: third.value,
+        forth: forth.value,
+        fifthy: fifthy.value,
+        firstadd,
+        secondadd,
+        thirdadd,
+        forthadd,
+        fifthyadd,
+        madds,
+        initialcpc,
+        v1,
+        v2,
+        v3,
+        v4,
+        v5,
+        vrebirth: vrebirth.value,
+        delay,
+        delayed,
+        speed,
+        actvc,
+        actvc2,
+        actvc3,
+        clickingc,
+        updt1,
+        updt2,
+        listpoint,
+        valuelist: {
+            vindex: valuelist.vindex
+        }
+    };
+    localStorage.setItem("trueclickerSave", JSON.stringify(saveData));
+}
+function loadGame() {
+    const saveData = JSON.parse(localStorage.getItem("trueclickerSave"));
+    if (!saveData) {
+        return;
+    }
+    clicks.value = saveData.clicks;
+    cpc = saveData.cpc;
+    first.value = saveData.first;
+    second.value = saveData.second;
+    third.value = saveData.third;
+    forth.value = saveData.forth;
+    fifthy.value = saveData.fifthy;
+    firstadd = saveData.firstadd;
+    secondadd = saveData.secondadd;
+    thirdadd = saveData.thirdadd;
+    forthadd = saveData.forthadd;
+    fifthyadd = saveData.fifthyadd;
+    madds = saveData.madds;
+    initialcpc = saveData.initialcpc;
+    v1 = saveData.v1;
+    v2 = saveData.v2;
+    v3 = saveData.v3;
+    v4 = saveData.v4;
+    v5 = saveData.v5;
+    vrebirth.value = saveData.vrebirth;
+    delay = saveData.delay;
+    delayed = saveData.delayed;
+    speed = saveData.speed;
+    actvc = saveData.actvc;
+    actvc2 = saveData.actvc2;
+    actvc3 = saveData.actvc3;
+    clickingc = saveData.clickingc;
+    updt1 = saveData.updt1;
+    updt2 = saveData.updt2;
+    listpoint = saveData.listpoint;
+    valuelist.vindex = saveData.valuelist.vindex;
+}
 kma.addEventListener("pointerdown", Cgain, setTitle)
 seta.addEventListener("pointerdown", diminui,)
 seta.addEventListener("pointerup", aumenta,)
@@ -455,6 +529,7 @@ aclicker2.addEventListener("pointerdown", changespeed)
 aclicker3.addEventListener("pointerdown", changespeed2)
 rebirth.addEventListener("pointerdown", openrm)
 rbutton.addEventListener("pointerdown", rebirthdo)
+window.addEventListener("beforeunload", saveGame)
 first.addEventListener("mouseover", function() {
     if (clicks.value >= first.value) {
         clearInterval(set1)
@@ -552,3 +627,11 @@ setInterval(() => {
     music.play()
     music.volume = 0.5
 }, 289000);
+loadGame()
+first.innerHTML = `${first.value}: + ${Math.ceil(firstadd)} Clicks `;
+second.innerHTML = `${second.value}: + ${Math.ceil(secondadd)} Clicks `;
+third.innerHTML = `${third.value}: + ${Math.ceil(thirdadd)} Clicks `;
+forth.innerHTML = `${forth.value}: + ${Math.ceil(forthadd)} Clicks `;
+fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `;
+delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`;
+vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`;
