@@ -21,6 +21,7 @@ const vrebirth = document.getElementById("vrebirth")
 const vrtext = document.getElementById("vrtext")
 const audio = new Audio("gemido-whatsapp.mp3")
 const music = new Audio("Gloria Gaynor i will survive Lyrics.mp3")
+let playmusic = false
 let set1;
 let set2;
 let set3;
@@ -514,6 +515,19 @@ function loadGame() {
     listpoint = saveData.listpoint;
     valuelist.vindex = saveData.valuelist.vindex;
 }
+function playm() {
+    if (playmusic === false) {
+setTimeout(() => {
+  music.play()
+    music.volume = 0.5
+}, 1);
+setInterval(() => {
+    music.play()
+    music.volume = 0.5
+}, 288000);
+    playmusic = true
+ }
+}
 kma.addEventListener("pointerdown", Cgain, setTitle)
 seta.addEventListener("pointerdown", diminui,)
 seta.addEventListener("pointerup", aumenta,)
@@ -530,6 +544,7 @@ aclicker3.addEventListener("pointerdown", changespeed2)
 rebirth.addEventListener("pointerdown", openrm)
 rbutton.addEventListener("pointerdown", rebirthdo)
 window.addEventListener("beforeunload", saveGame)
+window.addEventListener("pointerdown", playm)
 first.addEventListener("mouseover", function() {
     if (clicks.value >= first.value) {
         clearInterval(set1)
@@ -619,14 +634,8 @@ fifthy.addEventListener("mouseout", function() {
     } , 50);
 }
 );
-setTimeout(() => {
-  music.play()
-    music.volume = 0.5
-}, 1000);
-setInterval(() => {
-    music.play()
-    music.volume = 0.5
-}, 289000);
+
+
 loadGame()
 first.innerHTML = `${first.value}: + ${Math.ceil(firstadd)} Clicks `;
 second.innerHTML = `${second.value}: + ${Math.ceil(secondadd)} Clicks `;
