@@ -345,18 +345,20 @@ function aumenta() {
     }
     function sommute1 () {
         if (mutm === false) {
+            music.loop = false
+            music.pause()
             sa.style.display = "none"
             sna.style.display = "block"
             mutm = true
             mute.style.backgroundColor = "red"
-            location.reload()
         }
         else if (mutm === true) {
             sa.style.display = "block"
             sna.style.display = "none"
             mutm = false
             mute.style.backgroundColor = "green"
-            location.reload()
+            music.loop = true
+            music.play()
         }
     }
     function rebirthdo () {
@@ -470,19 +472,13 @@ function aumenta() {
        
 function playm() {
     if (playmusic === false) {
-setTimeout(() => {
-  music.play()
-    music.volume = 0.5
-}, 1);
-sma = setInterval(() => {
-    music.play()
-    music.volume = 0.5
-}, 288000);
+        music.loop = true
+        music.play()
     playmusic = true
  }
  else if (mutm === true) {
-        music.pause()
-        clearInterval(sma)
+    music.loop = false
+    music.pause()
     }
 }
 kma.addEventListener("pointerdown", Cgain, setTitle)
