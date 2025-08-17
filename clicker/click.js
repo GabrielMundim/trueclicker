@@ -347,6 +347,7 @@ function aumenta() {
         if (mutm === false) {
             music.loop = false
             music.pause()
+            audio.pause()
             sa.style.display = "none"
             sna.style.display = "block"
             mutm = true
@@ -359,6 +360,7 @@ function aumenta() {
             mute.style.backgroundColor = "green"
             music.loop = true
             music.play()
+            audio.play()
             music.volume = 0.5
         }
     }
@@ -682,8 +684,10 @@ if (mutm === true) {
     sna.style.display = "block";
     mute.style.backgroundColor = "red";
     music.volume = 0;
+    audio.volume = 0;
     music.loop = false;
     music.pause();
+    audio.pause();
 } else {
     sa.style.display = "block";
     sna.style.display = "none";
