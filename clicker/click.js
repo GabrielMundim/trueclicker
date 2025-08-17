@@ -359,6 +359,7 @@ function aumenta() {
             mute.style.backgroundColor = "green"
             music.loop = true
             music.play()
+            music.volume = 0.5
         }
     }
     function rebirthdo () {
