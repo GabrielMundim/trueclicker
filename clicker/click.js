@@ -677,9 +677,19 @@ fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `;
 delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`;
 vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`;
 if (mutm === true) {
-    sa.style.display = "none"
-    sna.style.display = "block"
-    mute.style.backgroundColor = "red"
+    sa.style.display = "none";
+    sna.style.display = "block";
+    mute.style.backgroundColor = "red";
+    music.volume = 0;
+    music.loop = false;
+    music.pause();
+} else {
+    sa.style.display = "block";
+    sna.style.display = "none";
+    mute.style.backgroundColor = "green";
+    music.loop = true;
+    music.play();
+    music.volume = 0.5;
 }
 if (actvc === true) {
     aclicker1.style.backgroundColor = "gray"
