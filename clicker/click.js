@@ -21,7 +21,13 @@ const vrebirth = document.getElementById("vrebirth")
 const vrtext = document.getElementById("vrtext")
 const audio = new Audio("gemido-whatsapp.mp3")
 const music = new Audio("Gloria Gaynor i will survive Lyrics.mp3")
+const mute = document.getElementById("mute")
+const sa = document.getElementById("sa")
+const sna = document.getElementById("sna")
+const sommute = document.querySelector(".sommute")
+let sma
 let playmusic = false
+let mutm = false
 let set1;
 let set2;
 let set3;
@@ -73,8 +79,10 @@ const valuelist = {
 function Cgain(){
         if (canclick) {
         clicks.value = clicks.value + cpc
+        if (mutm === false) {
         audio.play()
         audio.volume = 0.1
+        }
         clicks.value = Math.ceil(clicks.value)
  }
  canclick = false
@@ -209,8 +217,10 @@ function aumenta() {
              tempo = setInterval(() => {
                 clicks.value = clicks.value + cpc
                 clicks.value = Math.ceil(clicks.value)
+                if (mutm === false) {
                 audio.volume = 0.1
                 audio.play()
+                }
             }, speed);
             clicking.style.backgroundColor = "green"
              window.alert("Auto Clicker was activated")
@@ -331,6 +341,22 @@ function aumenta() {
         else if (rmopen === true) {
             rmenu.style.display = "none"
             rmopen = false
+        }
+    }
+    function sommute1 () {
+        if (mutm === false) {
+            sa.style.display = "none"
+            sna.style.display = "block"
+            mutm = true
+            mute.style.backgroundColor = "red"
+            location.reload()
+        }
+        else if (mutm === true) {
+            sa.style.display = "block"
+            sna.style.display = "none"
+            mutm = false
+            mute.style.backgroundColor = "green"
+            location.reload()
         }
     }
     function rebirthdo () {
@@ -473,6 +499,7 @@ function aumenta() {
         updt1,
         updt2,
         listpoint,
+        mutm,
         valuelist: {
             vindex: valuelist.vindex
         }
@@ -513,6 +540,7 @@ function loadGame() {
     clickingc = saveData.clickingc;
     updt1 = saveData.updt1;
     updt2 = saveData.updt2;
+    mutm = saveData.mutm;
     listpoint = saveData.listpoint;
     valuelist.vindex = saveData.valuelist.vindex;
     if (actvc === true) {
@@ -525,12 +553,16 @@ setTimeout(() => {
   music.play()
     music.volume = 0.5
 }, 1);
-setInterval(() => {
+sma = setInterval(() => {
     music.play()
     music.volume = 0.5
 }, 288000);
     playmusic = true
  }
+ else if (mutm === true) {
+        music.pause()
+        clearInterval(sma)
+    }
 }
 kma.addEventListener("pointerdown", Cgain, setTitle)
 seta.addEventListener("pointerdown", diminui,)
@@ -549,6 +581,7 @@ rebirth.addEventListener("pointerdown", openrm)
 rbutton.addEventListener("pointerdown", rebirthdo)
 window.addEventListener("beforeunload", saveGame)
 window.addEventListener("pointerdown", playm)
+mute.addEventListener("pointerdown", sommute1)
 first.addEventListener("mouseover", function() {
     if (clicks.value >= first.value) {
         clearInterval(set1)
@@ -646,6 +679,11 @@ forth.innerHTML = `${forth.value}: + ${Math.ceil(forthadd)} Clicks `;
 fifthy.innerHTML = `${fifthy.value}: + ${Math.ceil(fifthyadd)} Clicks `;
 delay1.innerHTML = `${valuelist.values[valuelist.vindex]}: ${delay} Milisseconds`;
 vrtext.innerHTML = `${clicks.value}/${vrebirth.value}`;
+if (mutm === true) {
+    sa.style.display = "none"
+    sna.style.display = "block"
+    mute.style.backgroundColor = "red"
+}
 if (actvc === true) {
     aclicker1.style.backgroundColor = "gray"
     aclicker1.innerHTML = "Max: Fat AutoClicker"

@@ -345,3 +345,31 @@ background-color: rgb(255, 147, 223);
 .cslct {
     user-select: none;
 }
+#mute {
+    width: 3%;
+    height: 12%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    border: 2px solid black;
+    border-radius: 55px;
+    background-color: green;
+}
+#sa {
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    cursor: pointer;
+    left: -40px;
+    top: -20px;
+}
+#sna {
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    cursor: pointer;
+    left: -40px;
+    top: -20px;
+    display: none;
+}
